@@ -40,3 +40,16 @@
   border-bottom-right-radius: 18px;
   border-top-right-radius: 18px;
 }
+
+.info-panel > .row > .col-6:nth-child(1) {
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.info-panel > .row > .col-6:nth-child(2) {
+  border-bottom: 1px solid white;
+}
+
+.info-panel > .row > .col-6:nth-child(3) {
+  border-right: 1px solid white;
+}
