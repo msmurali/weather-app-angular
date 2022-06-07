@@ -1,0 +1,42 @@
+.wrapper {
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.col-12:first-child {
+  background-image: url("../assets/summer.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.col-12:first-child > .temperature {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+}
+
+.col-12 {
+  min-height: max(50vh, 300px);
+}
+
+.input-group > .form-control {
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px;
+  text-indent: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.input-group > .btn {
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+}
