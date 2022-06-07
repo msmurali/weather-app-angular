@@ -1,15 +1,16 @@
 <div class="wrapper">
-    <div class="row">
-        <div class="col-12">
-            <form class="m-4">
-                <div class="input-group ">
-                    <input type="text" class="form-control" placeholder="location">
-                    <button class="btn btn-primary" type="button">
+    <div class="row" *ngIf="weather">
+        <div class="col-12" [class.hot]="weather.main.temp > 30" [class.cold]="weather.main.temp < 30">
+            <form class="m-4" novalidate (submit)="submitHandler()">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="location" placeholder="location"
+                        [(ngModel)]="location">
+                    <button class="btn btn-primary" type="submit">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
             </form>
-            <h1 class="text-center temperature">23 &#8451;</h1>
+            <h1 class="text-center temperature">{{weather.main.temp | number: '1.0-0'}} &#8451;</h1>
         </div>
         <div class="col-12 info-panel">
             <p class="text-white mt-2 mb-2">more info</p>
@@ -19,7 +20,7 @@
                         <div class="col-6">
                             <img src="../assets/max.svg" alt="max-temp">
                         </div>
-                        <h3 class="col-6 text-white">20 &#8451;</h3>
+                        <h3 class="col-6 text-white">{{weather.main.temp_max | number: '1.0-0'}} &#8451;</h3>
                     </div>
                     <p class="text-warning text-center mt-2">Max</p>
                 </div>
@@ -28,25 +29,25 @@
                         <div class="col-6">
                             <img src="../assets/min.svg" alt="min-temp">
                         </div>
-                        <h3 class="col-6 text-white">20 &#8451;</h3>
+                        <h3 class="col-6 text-white">{{weather.main.temp_min | number: '1.0-0'}} &#8451;</h3>
                     </div>
                     <p class="text-warning text-center mt-2">Min</p>
                 </div>
                 <div class="col-6 p-3">
                     <div class="row align-items-center">
                         <div class="col-6">
-                            <img src="../assets/wind.svg" alt="min-temp">
+                            <img src="../assets/wind.svg" alt="wind-speed">
                         </div>
-                        <h3 class="col-6 text-white">20 &#8451;</h3>
+                        <h3 class="col-6 text-white">{{weather.wind.speed | number: '1.0-0'}} Km/Hr</h3>
                     </div>
                     <p class="text-warning text-center mt-2">Wind</p>
                 </div>
                 <div class="col-6 p-3">
                     <div class="row align-items-center">
                         <div class="col-6">
-                            <img src="../assets/water.svg" alt="min-temp">
+                            <img src="../assets/water.svg" alt="humidity">
                         </div>
-                        <h3 class="col-6 text-white">20 &#8451;</h3>
+                        <h3 class="col-6 text-white">{{weather.main.humidity | number: '1.0-0'}} %</h3>
                     </div>
                     <p class="text-warning text-center mt-2">Humidity</p>
                 </div>
